@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Selamat Ulang Tahun</title>
+</head>
+<body>
+    <h1>Selamat Datang di Web Ucapan Ulang Tahun!</h1>
+    
+    <div class="container">
+        {% if message %}
+            <p>{{ message }}</p> <!-- Menampilkan pesan ucapan atau error -->
+            <a href="/">Kembali ke Halaman Utama</a>
+        {% else %}
+            <p>Masukkan nama dan umur Anda untuk menerima ucapan ulang tahun spesial!</p>
+            <form action="/" method="POST">
+                <input type="text" name="name" placeholder="Masukkan nama Anda" required>
+                <input type="number" name="age" placeholder="Masukkan umur Anda" required>
+                <button type="submit">Kirim</button>
+            </form>
+        {% endif %}
+    </div>
+</body>
+</html>
